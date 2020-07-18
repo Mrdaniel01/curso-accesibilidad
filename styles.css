@@ -47,14 +47,31 @@ img {
   --verde: #7ac943;
 }
 
-body {
+body, header, section {
   align-items: center;
   background-color: var(--gris-medio);
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+.skip-link {
+  height: 0;
+}
+.skip-link:focus,
+.skip-link:active{
+  height: auto;
+  width: 200px;
+  padding: 5px;
+  margin: 10px;
+  color: var(--gris-oscuro);
+  font-family: var(--secondary-font);
+  border: 2px solid var(--gris-oscuro);
+  text-decoration: none;
+  background-color: var(--verde);
+  text-align: center;
 }
 
-.header {
+.title {
   color: var(--blanco);
   font-family: var(--main-font);
   font-size: 55px;
@@ -68,51 +85,99 @@ body {
 }
 
 .header-img {
-  background: center / contain no-repeat url(./images/daniel.png);
   border-radius: 50%;
   filter: blur(0px);
   border: 1px solid var(--gris-oscuro);
   box-shadow: 8px 16px 32px 0px var(--shadow);
   height: 300px;
   margin-top: 80px;
-  width: 300px;
-
+  width: 300px; 
+  object-fit:cover;
+  border: 2px solid rgb(231, 227, 227);
+  
 }
+
 
 .navigation {
   color: var(--blanco);
   cursor: pointer;
   display: flex;
   justify-content: space-around;
-  margin: 24px 0;
-  width: 50%;
+  margin: 24px 0;  
 }
 
-.nav-item {
+nav ul{
   align-items: center;
   border-radius: 5px;
   display: flex;
   font-family: var(--secondary-font);
-  height: 30px;
+  width: 100%;  
+  margin: 0 auto;
   justify-content: center;
-  width: 33%;
 }
 
-.nav-item:hover {
-  background-color: var(--verde);
+nav .nav-item a{
+  display: flex;
+  justify-content:space-between ;
+  width: 130px;
+  text-align: center;
+  padding:5px auto;
+  margin: 10px 20px;  
+  color: white;
+  text-decoration: none;
 }
+.nav-item {
+  text-align: center;
+}
+
+
+.nav-item:focus-within,
+.nav-item a:focus-within{
+  background-color: var(--verde);
+  outline: none;
+  color: var(--gris-oscuro);      
+}
+
+.nav-item:hover,
+.nav-item:hover a {
+  background-color: var(--verde);
+  color: var(--gris-oscuro);
+}
+
+.nav-item:hover a:focus{
+  outline:none;
+  color: var(--gris-oscuro);
+  outline: none;
+} 
+
 
 .intro {
   margin: 0 196px;
   font-family: var(--secondary-font);
+  color: var(--blanco);
 }
 
 .social-media {
   align-items: center;
   display: flex;
   justify-content: space-around;
-  margin: 32px auto 0;
+  margin: 32px auto 32px;
   width: 20%;
+}
+.social-media li a:focus {
+  outline: none;
+}
+.social-media li:focus-within{
+  outline: 3px solid var(--verde);
+  padding: 8px;
+}
+
+.social-media li a {
+  color:var(--blanco);
+  text-decoration: none;
+  display: flex;
+  font-family: var(--secondary-font);
+  justify-content:  center;
 }
 
 .carousel {
@@ -124,12 +189,27 @@ body {
 .window {
   overflow: hidden;
   width: 805px;
+  padding: 8px;
 }
 
 .project-container {
   left: 0;
   position: relative;
   width: 1500px;
+}
+
+.project-container li { 
+  display: inline-block;
+}
+
+.project-container button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.project-container button:focus-within{
+  outline: 3px solid var(--verde);
 }
 
 .project {
@@ -140,31 +220,12 @@ body {
   margin: 0 8px;
   transition: all 0.2s ease-in-out;
   width: 250px;
+  object-fit: cover;
 }
 
 .project:hover {
   cursor: pointer;
   transform: scale(1.1);
-}
-
-.project1 {
-  background: center / cover no-repeat url(./images/project1.png);
-}
-
-.project2 {
-  background: center / cover no-repeat url(./images/project2.png);
-}
-
-.project3 {
-  background: center / cover no-repeat url(./images/project3.png);
-}
-
-.project4 {
-  background: center / cover no-repeat url(./images/project4.png);
-}
-
-.project5 {
-  background: center / cover no-repeat url(./images/project5.png);
 }
 
 .arrow {
@@ -201,6 +262,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 30%;
+  font-family: var(--secondary-font);
 }
 
 .message-input input {
@@ -209,22 +271,37 @@ body {
 }
 
 input {
-  outline: none;
   width: 100%;
+  padding: 5px;
+}
+
+input:focus-within{
+  outline: 3px solid var(--verde);
+}
+
+label{
+  color: var(--blanco);
 }
 
 .send-button {
   align-items: center;
   background-color: var(--verde);
   border-radius: 5px;
-  color: white;
+  color: var(--gris-oscuro);
   font-family: var(--secondary-font);
+  font-size: 16px;
   display: flex;
   height: 50px;
   justify-content: center;
   margin-bottom: 48px;
   width: 150px;
   margin-left: auto;
+  cursor: pointer;
+  outline: none;
+}
+
+.send-button:focus-within{
+  outline:3px solid var(--blanco) ;
 }
 
 .notification {
